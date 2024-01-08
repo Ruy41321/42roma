@@ -1,0 +1,17 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+SOURCE = main.c
+NAME = rush-02
+
+all: $(NAME)
+
+$(NAME): $(SOURCE)
+	$(CC) $(CFLAGS) -o $(NAME) $(SOURCE)
+
+clean: 
+	rm -f $(NAME)
+
+fclean: clean
+	rm -f $(NAME)
+
+.PHONY: all clean fclean
