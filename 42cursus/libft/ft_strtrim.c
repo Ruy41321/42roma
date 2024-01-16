@@ -1,3 +1,5 @@
+#include "libft.h"
+
 bool	is_in_string(char c, char const *str)
 {
 	while (*str)
