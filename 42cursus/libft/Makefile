@@ -14,13 +14,8 @@ RM		= rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
-		${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
-
-$(NAME): ${OBJS}
+all:	${OBJS}
 		ar rcs ${NAME} ${OBJS}
-
-all:	${NAME}
 
 clean:
 		${RM} ${OBJS}
