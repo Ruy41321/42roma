@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 21:55:56 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/01/19 12:56:30 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/01/19 19:34:34 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new;
-	t_list	*temp_new;
+	t_list	*new_node;
+	t_list	*new_head;
 
-	new = malloc(sizeof(t_list));
-	temp_new = new;
-	while (lst != 0 && lst->content != 0)
+	if (!lst || !f || !del)
+		return (NULL);
+	new_node = ft_lstnew(f(lst -> content));
+	new_head = new_node;
+	while (lst -> next)
 	{
-		new->content = malloc(sizeof(lst->content));
-		if (new->content == 0)
-			return (0);
-		new->content = ((*f)(lst->content));
-		new->next = malloc(sizeof(t_list));
-		if (new->next == 0)
+		lst = lst -> next;
+		if (!(lst -> content))
+			del(lst -> content);
+		new_node -> next = ft_lstnew(f(lst -> content));
+		if (!new_node -> next)
 		{
-			ft_lstclear(&new, del);
-			return (0);
+			ft_lstclear(&new_head, del);
+			return (NULL);
 		}
-		lst = lst->next;
-		if (lst != 0)
-			new = new->next;
+		new_node = new_node -> next;
 	}
-	free(new->next);
-	new->next = 0;
-	return (temp_new);
+	return (new_head);
 }

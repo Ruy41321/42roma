@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:47:32 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/01/19 13:45:07 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:53:04 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	pdest = (unsigned char *)dest;
 	psrc = (unsigned char *)src;
+	if (!dest && !src)
+		return (0);
 	while (n--)
 		*(pdest++) = *(psrc++);
 	return (dest);
