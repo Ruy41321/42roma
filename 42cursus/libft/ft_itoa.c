@@ -28,7 +28,7 @@ char	*ft_itoa(int nb)
 {
 	int			len;
 	char		*str;
-	const char	*digits = "0123456789";
+	const char	*numbers = "0123456789";
 
 	len = numlen(nb, 10);
 	str = malloc(sizeof(char) * (len + 1));
@@ -42,9 +42,9 @@ char	*ft_itoa(int nb)
 	while (nb)
 	{
 		if (nb > 0)
-			str[--len] = digits[nb % 10];
+			str[--len] = numbers[nb % 10];
 		else
-			str[--len] = digits[nb % 10 * -1];
+			str[--len] = numbers[nb % 10 * -1];
 		nb /= 10;
 	}
 	return (str);

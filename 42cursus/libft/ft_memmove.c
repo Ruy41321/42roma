@@ -14,18 +14,18 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*str1_buff;
-	unsigned char	*str2_buff;
+	unsigned char	*buff1;
+	unsigned char	*buff2;
 
-	str1_buff = (unsigned char *)dest;
-	str2_buff = (unsigned char *)src;
+	buff1 = (unsigned char *)dest;
+	buff2 = (unsigned char *)src;
 	if (!dest && !src)
 		return (dest);
 	if (src < dest)
 		while (n--)
-			str1_buff[n] = str2_buff[n];
+			buff1[n] = buff2[n];
 	else
 		while (n--)
-			*str1_buff++ = *str2_buff++;
+			*buff1++ = *buff2++;
 	return (dest);
 }
