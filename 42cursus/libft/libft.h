@@ -6,14 +6,13 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:47:15 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/01/19 13:09:11 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/01/19 23:05:56 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
-# include <stdbool.h>
 # include <unistd.h>
 # undef INT_MIN
 # undef INT_MAX

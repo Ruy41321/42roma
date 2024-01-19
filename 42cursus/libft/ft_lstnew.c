@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 21:56:04 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/01/18 21:56:06 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/01/19 23:04:29 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstnew(void *content)
 	el = (t_list *) malloc(sizeof(*el));
 	if (!el)
 		return (0);
-	element->content = content;
-	element->next = NULL;
+	el->content = content;
+	el->next = NULL;
 	return (el);
 }

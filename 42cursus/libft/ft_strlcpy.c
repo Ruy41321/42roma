@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:45:13 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/01/18 14:45:15 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/01/19 23:00:08 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	size_t	c;
 	size_t	i;
 
-	index = 0;
+	i = 0;
 	c = ft_strlen(src);
 	if (size != 0)
 	{
