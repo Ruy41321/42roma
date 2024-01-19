@@ -6,14 +6,16 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 21:55:45 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/01/18 21:55:47 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:08:34 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
+	if (!lst)
+		return (lst);
 	while (lst->next)
 	{
 		lst = lst->next;
