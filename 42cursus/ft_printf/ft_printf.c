@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/02 11:22:06 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/02/02 11:28:41 by lpennisi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int var_stamp(char ch, va_list varg)
+int	var_stamp(char ch, va_list varg)
 {
 	if (ch == 'c')
-		return(ft_putchar(va_arg(varg, int)));
+		return (ft_putchar(va_arg(varg, int)));
 	else if (ch == 's')
-		return(ft_putstr(va_arg(varg, char*)));
+		return (ft_putstr(va_arg(varg, char *)));
 	else if (ch == 'p')
-		return(ft_putptr(va_arg(varg, unsigned long long)));
+		return (ft_putptr(va_arg(varg, unsigned long long)));
 	else if (ch == 'd' || ch == 'i')
-		return(ft_putnbr(va_arg(varg, int)));
+		return (ft_putnbr(va_arg(varg, int)));
 	else if (ch == 'u')
-		return(ft_put_unsnbr(va_arg(varg, unsigned int)));
+		return (ft_put_unsnbr(va_arg(varg, unsigned int)));
 	else if (ch == 'x' || ch == 'X')
-		return(ft_puthex(va_arg(varg, unsigned int), ch));
+		return (ft_puthex(va_arg(varg, unsigned int), ch));
 	else if (ch == '%')
 		ft_putchar('%');
 	else
@@ -25,16 +37,16 @@ int var_stamp(char ch, va_list varg)
 	return (1);
 }
 
-int ft_printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
-	va_list varg;
-	int counter;
+	va_list	varg;
+	int		counter;
 
 	va_start(varg, s);
 	counter = 0;
 	while (*s)
 	{
-		if(*s == '%')
+		if (*s == '%')
 		{
 			s++;
 			counter += var_stamp(*s, varg);
