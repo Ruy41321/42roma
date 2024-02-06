@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/06 14:06:37 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/02/06 15:23:27 by lpennisi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	sa(t_stack_ab stacks)
+{
+	if (stacks.a.size > 1)
+		swap(stacks.a.elem[0], stack.a.elem[1]);
+}
+
+void	sb(t_stack_ab stacks)
+{
+	if (stacks.b.size > 1)
+		swap(stacks.b.elem[0], stack.b.elem[1]);
+}
+
+void	ss(t_stack_ab stacks)
+{
+	sa(stacks);
+	sb(stacks);
+}
+
+void	pa(t_stack_ab stacks)
+{
+	if (!is_empty(stacks.b))
+		push(stacks.a, pop(stacks.b));
+}
+
+void	pb(t_stack_ab stacks)
+{
+	if (!is_empty(stacks.a))
+		push(stacks.b, pop(stacks.a));
+}
