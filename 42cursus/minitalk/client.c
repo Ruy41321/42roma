@@ -6,16 +6,16 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 16:35:52 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/05 16:50:52 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:26:37 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void send_msg(int pid, char *msg)
+void	send_msg(int pid, char *msg)
 {
-	int pos;
-	int f;
+	int	pos;
+	int	f;
 
 	f = 1;
 	while (f)
@@ -37,7 +37,7 @@ void send_msg(int pid, char *msg)
 	ft_printf("send\n");
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc != 3)
 		ft_printf("Wrong number of parameter\n");
