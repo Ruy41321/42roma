@@ -6,23 +6,11 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:28:40 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/06 15:58:08 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:05:15 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void new_stacks(t_stack_ab stacks, int argc, char **argv)
-{
-	stacks.b.size = 0;
-	stacks.a.size = 0;
-	while (stacks.a.size < argc - 1)
-	{
-		stacks.a.elem[stacks.a.size] = argv[stacks.a.size + 1];
-		stacks.a.size++;
-	}
-	return (stacks);
-}
+#include "../push_swap.h"
 
 int	is_empty(t_stack s)
 {
@@ -76,4 +64,24 @@ void	push(t_stack s, int value)
 	free(s.elem);
 	s.elem = new_elem;
 	s.size++;
+}
+
+void	printf_stack(t_stack_ab stacks)
+{
+	int	i;
+
+	i = 0;
+	ft_printf("Stack a - size: %d\n", stacks.a.size);
+	while (i < stacks.a.size)
+	{
+		ft_printf("%d\n", stacks.a.elem[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("Stack b - size: %d\n", stacks.b.size);
+	while (i < stacks.b.size)
+	{
+		ft_printf("%d\n", stacks.b.elem[i]);
+		i++;
+	}
 }

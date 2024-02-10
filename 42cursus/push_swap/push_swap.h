@@ -6,12 +6,15 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:59:59 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/06 15:28:58 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:05:26 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 # include "ft_printf.h"
 # include <stdlib.h>
@@ -43,4 +46,9 @@ void	rr(t_stack_ab stacks);
 void	rra(t_stack_ab stacks);
 void	rrb(t_stack_ab stacks);
 void	rrr(t_stack_ab stacks);
+long	ft_atol(const char *str);
+int		ft_strlen(const char *str);
+void	error_exit(void);
+void	printf_stack(t_stack_ab stacks);
+
 #endif

@@ -6,22 +6,22 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:06:37 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/06 15:23:27 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:58:38 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sa(t_stack_ab stacks)
 {
 	if (stacks.a.size > 1)
-		swap(stacks.a.elem[0], stack.a.elem[1]);
+		swap(&stacks.a.elem[0], &stacks.a.elem[1]);
 }
 
 void	sb(t_stack_ab stacks)
 {
 	if (stacks.b.size > 1)
-		swap(stacks.b.elem[0], stack.b.elem[1]);
+		swap(&stacks.b.elem[0], &stacks.b.elem[1]);
 }
 
 void	ss(t_stack_ab stacks)
