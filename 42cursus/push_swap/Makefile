@@ -5,7 +5,8 @@ RM = rm -f
 
 LIBPRINTF = ./ft_printf/libftprintf.a
 
-SRCS = main.c utils/utils.c utils/stack_utils.c utils/op.c utils/reverse_rotate_op.c utils/rotate_op.c
+SRCS = main.c utils/utils.c utils/stack_utils.c utils/op.c \
+	utils/reverse_rotate_op.c utils/rotate_op.c sort/long.c sort/short.c
 
 OBJS = ${SRCS:.c=.o}
 

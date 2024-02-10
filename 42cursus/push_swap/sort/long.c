@@ -1,46 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate_op.c                                :+:      :+:    :+:   */
+/*   long.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 15:23:02 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/10 16:36:29 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/02/10 15:39:27 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/02/10 19:05:07 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-char	*rra(t_stack_ab stacks)
+void	long_stack_sort(t_stack_ab *stacks)
 {
-	int	i;
-
-	i = stacks.a.size - 1;
-	while (i > 0)
-	{
-		swap(&stacks.a.elem[i], &stacks.a.elem[i - 1]);
-		i--;
-	}
-	return ("rra\n");
-}
-
-char	*rrb(t_stack_ab stacks)
-{
-	int	i;
-
-	i = stacks.b.size - 1;
-	while (i > 0)
-	{
-		swap(&stacks.b.elem[i], &stacks.b.elem[i - 1]);
-		i--;
-	}
-	return ("rrb\n");
-}
-
-char	*rrr(t_stack_ab stacks)
-{
-	rra(stacks);
-	rrb(stacks);
-	return ("rrr\n");
+	(*stacks).a.elem[0] = 0;
 }

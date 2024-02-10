@@ -6,38 +6,43 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:06:37 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/07 16:58:38 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:15:24 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sa(t_stack_ab stacks)
+char	*sa(t_stack_ab stacks)
 {
 	if (stacks.a.size > 1)
 		swap(&stacks.a.elem[0], &stacks.a.elem[1]);
+	return ("sa\n");
 }
 
-void	sb(t_stack_ab stacks)
+char	*sb(t_stack_ab stacks)
 {
 	if (stacks.b.size > 1)
 		swap(&stacks.b.elem[0], &stacks.b.elem[1]);
+	return ("sb\n");
 }
 
-void	ss(t_stack_ab stacks)
+char	*ss(t_stack_ab stacks)
 {
 	sa(stacks);
 	sb(stacks);
+	return ("ss\n");
 }
 
-void	pa(t_stack_ab stacks)
+char	*pa(t_stack_ab *stacks)
 {
-	if (!is_empty(stacks.b))
-		push(stacks.a, pop(stacks.b));
+	if (!is_empty(stacks->b))
+		push(&stacks->a, pop(&stacks->b));
+	return ("pa\n");
 }
 
-void	pb(t_stack_ab stacks)
+char	*pb(t_stack_ab *stacks)
 {
-	if (!is_empty(stacks.a))
-		push(stacks.b, pop(stacks.a));
+	if (!is_empty(stacks->a))
+		push(&stacks->b, pop(&stacks->a));
+	return ("pb\n");
 }

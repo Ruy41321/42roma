@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:00:42 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/07 17:06:17 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/10 20:50:27 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,20 @@ int	main(int argc, char **argv)
 	t_stack_ab	stacks;
 
 	stacks.a.elem = param_parse(argc, argv);
+	stacks.b.elem = NULL;
 	stacks.b.size = 0;
 	stacks.a.size = argc - 1;
+	if (!is_sorted(stacks.a))
+	{
+		if (stacks.a.size == 2)
+			ft_printf("%s", sa(stacks));
+		else if (stacks.a.size == 3)
+			tree_nums_sort(stacks);
+		else if (stacks.a.size <= 5)
+			short_stack_sort(&stacks);
+		else
+			long_stack_sort(&stacks);
+	}
 	printf_stack(stacks);
 	return (0);
 }
@@ -74,14 +86,12 @@ int	*argv_to_intarr(int argc, char **argv)
 	int		*elems;
 	long	temp;
 	int		i;
-	int		j;
 
 	elems = (int *)malloc(sizeof(int) * (argc - 1));
 	i = 0;
-	j = 1;
-	while (argv[j])
+	while (argv[i + 1])
 	{
-		temp = ft_atol(argv[j]);
+		temp = ft_atol(argv[i + 1]);
 		if (temp > INT_MAX || temp <= INT_MIN)
 		{
 			free(elems);
@@ -89,7 +99,6 @@ int	*argv_to_intarr(int argc, char **argv)
 		}
 		elems[i] = (int)temp;
 		i++;
-		j++;
 	}
 	return (elems);
 }

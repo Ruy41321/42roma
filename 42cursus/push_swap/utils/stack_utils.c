@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:28:40 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/07 17:05:15 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/10 20:54:59 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,60 +28,57 @@ void	swap(int *a, int *b)
 	*b = buf;
 }
 
-int	pop(t_stack s)
+int	pop(t_stack *s)
 {
 	int	ret;
 	int	*new_elem;
 	int	i;
 
-	ret = s.elem[0];
-	new_elem = (int *)malloc(sizeof(int) * (s.size - 1));
+	s->size--;
+	ret = s->elem[0];
+	new_elem = (int *)malloc(sizeof(int) * (s->size));
+	if (new_elem == NULL)
+        error_exit();
 	i = 0;
-	while (i < s.size - 1)
+	while (i < s->size)
 	{
-		new_elem[i] = s.elem[i + 1];
+		new_elem[i] = s->elem[i + 1];
 		i++;
 	}
-	free(s.elem);
-	s.elem = new_elem;
-	s.size--;
+	free(s->elem);
+	s->elem = new_elem;
 	return (ret);
 }
 
-void	push(t_stack s, int value)
+void	push(t_stack *s, int value)
 {
 	int	*new_elem;
 	int	i;
 
-	new_elem = (int *)malloc(sizeof(int) * (s.size + 1));
+	s->size++;
+	new_elem = (int *)malloc(sizeof(int) * (s->size));
 	new_elem[0] = value;
 	i = 1;
-	while (i < s.size + 1)
+	while (i < s->size)
 	{
-		new_elem[i] = s.elem[i];
+		new_elem[i] = s->elem[i - 1];
 		i++;
 	}
-	free(s.elem);
-	s.elem = new_elem;
-	s.size++;
+	if (s->elem != NULL)
+		free(s->elem);
+	s->elem = new_elem;
 }
 
-void	printf_stack(t_stack_ab stacks)
+int is_sorted(t_stack a)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	ft_printf("Stack a - size: %d\n", stacks.a.size);
-	while (i < stacks.a.size)
+	while (i < a.size - 1)
 	{
-		ft_printf("%d\n", stacks.a.elem[i]);
+		if (a.elem[i] > a.elem[i + 1])
+			return (0);
 		i++;
 	}
-	i = 0;
-	ft_printf("Stack b - size: %d\n", stacks.b.size);
-	while (i < stacks.b.size)
-	{
-		ft_printf("%d\n", stacks.b.elem[i]);
-		i++;
-	}
+	return (1);
 }
