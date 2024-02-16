@@ -1,45 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_op.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 15:21:55 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/11 12:26:34 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:47:32 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/19 17:53:04 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ra(t_stack_ab stacks)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	unsigned char	*pdest;
+	unsigned char	*psrc;
 
-	i = 0;
-	while (i < stacks.a.size - 1)
-	{
-		swap(&stacks.a.elem[i], &stacks.a.elem[i + 1]);
-		i++;
-	}
-	ft_printf("ra\n");
-}
-
-void	rb(t_stack_ab stacks)
-{
-	int	i;
-
-	i = 0;
-	while (i < stacks.b.size - 1)
-	{
-		swap(&stacks.b.elem[i], &stacks.b.elem[i + 1]);
-		i++;
-	}
-	ft_printf("rb\n");
-}
-
-void	rr(t_stack_ab stacks)
-{
-	ra(stacks);
-	rb(stacks);
+	pdest = (unsigned char *)dest;
+	psrc = (unsigned char *)src;
+	if (!dest && !src)
+		return (0);
+	while (n--)
+		*(pdest++) = *(psrc++);
+	return (dest);
 }

@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 11:24:49 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/02 11:29:44 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:42:27 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/18 14:42:40 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(char c)
+int	ft_isprint(int arg)
 {
-	write(1, &c, 1);
-	return (1);
-}
-
-int	ft_strlen(const char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-int	ft_putstr(char *s)
-{
-	if (!s)
-		return (0);
-	write(1, s, ft_strlen(s));
-	return (ft_strlen(s));
+	if (arg >= 32 && arg <= 126)
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:28:40 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/10 20:54:59 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:26:46 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	pop(t_stack *s)
 	ret = s->elem[0];
 	new_elem = (int *)malloc(sizeof(int) * (s->size));
 	if (new_elem == NULL)
-        error_exit();
+		exit(0);
 	i = 0;
 	while (i < s->size)
 	{
@@ -57,6 +57,8 @@ void	push(t_stack *s, int value)
 
 	s->size++;
 	new_elem = (int *)malloc(sizeof(int) * (s->size));
+	if (new_elem == NULL)
+		exit(0);
 	new_elem[0] = value;
 	i = 1;
 	while (i < s->size)
@@ -69,9 +71,9 @@ void	push(t_stack *s, int value)
 	s->elem = new_elem;
 }
 
-int is_sorted(t_stack a)
+int	is_sorted(t_stack a)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < a.size - 1)

@@ -1,45 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_op.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 15:21:55 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/11 12:26:34 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:45:49 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/18 14:45:50 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ra(t_stack_ab stacks)
+int	ft_strlen(const char *str)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (i < stacks.a.size - 1)
-	{
-		swap(&stacks.a.elem[i], &stacks.a.elem[i + 1]);
-		i++;
-	}
-	ft_printf("ra\n");
-}
-
-void	rb(t_stack_ab stacks)
-{
-	int	i;
-
-	i = 0;
-	while (i < stacks.b.size - 1)
-	{
-		swap(&stacks.b.elem[i], &stacks.b.elem[i + 1]);
-		i++;
-	}
-	ft_printf("rb\n");
-}
-
-void	rr(t_stack_ab stacks)
-{
-	ra(stacks);
-	rb(stacks);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }

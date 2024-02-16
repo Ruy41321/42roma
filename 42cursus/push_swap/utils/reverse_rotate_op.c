@@ -6,13 +6,13 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:23:02 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/10 16:36:29 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/11 12:25:37 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-char	*rra(t_stack_ab stacks)
+void	rra(t_stack_ab stacks)
 {
 	int	i;
 
@@ -22,10 +22,10 @@ char	*rra(t_stack_ab stacks)
 		swap(&stacks.a.elem[i], &stacks.a.elem[i - 1]);
 		i--;
 	}
-	return ("rra\n");
+	ft_printf("rra\n");
 }
 
-char	*rrb(t_stack_ab stacks)
+void	rrb(t_stack_ab stacks)
 {
 	int	i;
 
@@ -35,12 +35,11 @@ char	*rrb(t_stack_ab stacks)
 		swap(&stacks.b.elem[i], &stacks.b.elem[i - 1]);
 		i--;
 	}
-	return ("rrb\n");
+	ft_printf("rrb\n");
 }
 
-char	*rrr(t_stack_ab stacks)
+void	rrr(t_stack_ab stacks)
 {
 	rra(stacks);
 	rrb(stacks);
-	return ("rrr\n");
 }

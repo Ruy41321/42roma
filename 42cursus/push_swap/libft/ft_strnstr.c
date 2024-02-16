@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 15:20:27 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/12 14:28:20 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:48:16 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/19 17:54:45 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	write(STDERR_FILENO, "Error\n", 6);
-	exit(0);
-}
-
-void	printf_stack(t_stack_ab stacks)
-{
-	int	i;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
-	ft_printf("Stack a - size: %d\n", stacks.a.size);
-	while (i < stacks.a.size)
+	if (!(*needle))
+		return ((char *) haystack);
+	if (!len || !(*haystack))
+		return (NULL);
+	while (haystack[i] && i < len)
 	{
-		ft_printf("%d\n", stacks.a.elem[i]);
+		j = 0;
+		while (needle[j] == haystack[i + j] && i + j < len)
+		{
+			j++;
+			if (needle[j] == '\0')
+				return ((char *)haystack + i);
+		}
 		i++;
 	}
-	i = 0;
-	ft_printf("Stack b - size: %d\n", stacks.b.size);
-	while (i < stacks.b.size)
-	{
-		ft_printf("%d\n", stacks.b.elem[i]);
-		i++;
-	}
+	return (NULL);
 }

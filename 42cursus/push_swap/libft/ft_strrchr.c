@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 15:20:27 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/12 14:28:20 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:48:40 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/19 18:19:41 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
-{
-	write(STDERR_FILENO, "Error\n", 6);
-	exit(0);
-}
-
-void	printf_stack(t_stack_ab stacks)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = 0;
-	ft_printf("Stack a - size: %d\n", stacks.a.size);
-	while (i < stacks.a.size)
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		ft_printf("%d\n", stacks.a.elem[i]);
-		i++;
+		if (s[i] == (char) c)
+			return ((char *)&s[i]);
+		i--;
 	}
-	i = 0;
-	ft_printf("Stack b - size: %d\n", stacks.b.size);
-	while (i < stacks.b.size)
-	{
-		ft_printf("%d\n", stacks.b.elem[i]);
-		i++;
-	}
+	return (NULL);
 }

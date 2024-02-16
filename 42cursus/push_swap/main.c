@@ -6,50 +6,49 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:00:42 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/10 20:50:27 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:29:26 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*param_parse(int argc, char **argv);
+int	*param_parse(int *argc, char **argv);
 int	*argv_to_intarr(int argc, char **argv);
-int	are_digits(char **argv);
+int	are_digits(int argc, char **argv);
 int	has_duplicates(int *elems, int size);
 
 int	main(int argc, char **argv)
 {
 	t_stack_ab	stacks;
 
-	stacks.a.elem = param_parse(argc, argv);
+	stacks.a.elem = param_parse(&argc, argv);
 	stacks.b.elem = NULL;
 	stacks.b.size = 0;
 	stacks.a.size = argc - 1;
 	if (!is_sorted(stacks.a))
 	{
 		if (stacks.a.size == 2)
-			ft_printf("%s", sa(stacks));
-		else if (stacks.a.size == 3)
-			tree_nums_sort(stacks);
+			sa(stacks);
 		else if (stacks.a.size <= 5)
 			short_stack_sort(&stacks);
 		else
-			long_stack_sort(&stacks);
+			sort_bitxbit(&stacks);
 	}
-	printf_stack(stacks);
+	free(stacks);
+	free(argv);
 	return (0);
 }
 
-int	*param_parse(int argc, char **argv)
+int	*param_parse(int *argc, char **argv)
 {
 	int	*elems;
 
-	if (argc == 1)
+	if (*argc == 1)
 		exit (0);
-	if (!are_digits(argv))
+	if (!are_digits(*argc, argv))
 		error_exit();
-	elems = argv_to_intarr(argc, argv);
-	if (has_duplicates(elems, argc - 1))
+	elems = argv_to_intarr(*argc, argv);
+	if (has_duplicates(elems, *argc - 1))
 	{
 		free(elems);
 		error_exit();
@@ -57,17 +56,18 @@ int	*param_parse(int argc, char **argv)
 	return (elems);
 }
 
-int	are_digits(char **argv)
+int	are_digits(int argc, char **argv)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	while (argv[i])
+	while (i < argc)
 	{
 		if (ft_strlen(argv[i]) > 12)
 			return (0);
-		if (argv[i][0] != '-' && (argv[i][0] < 48 || argv[i][0] > 57))
+		if ((argv[i][0] != '-' || !argv[i][1]) \
+		&& (argv[i][0] < 48 || argv[i][0] > 57))
 			return (0);
 		j = 1;
 		while (argv[i][j])
@@ -88,16 +88,16 @@ int	*argv_to_intarr(int argc, char **argv)
 	int		i;
 
 	elems = (int *)malloc(sizeof(int) * (argc - 1));
-	i = 0;
-	while (argv[i + 1])
+	i = 1;
+	while (i < argc)
 	{
-		temp = ft_atol(argv[i + 1]);
-		if (temp > INT_MAX || temp <= INT_MIN)
+		temp = ft_atol(argv[i]);
+		if (temp > INT_MAX || temp < INT_MIN)
 		{
 			free(elems);
 			error_exit();
 		}
-		elems[i] = (int)temp;
+		elems[i - 1] = (int)temp;
 		i++;
 	}
 	return (elems);

@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 15:20:27 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/12 14:28:20 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:43:53 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/19 17:50:22 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+int	ft_atoi(const char *str)
 {
-	write(STDERR_FILENO, "Error\n", 6);
-	exit(0);
-}
+	int	sign;
+	int	result;
 
-void	printf_stack(t_stack_ab stacks)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("Stack a - size: %d\n", stacks.a.size);
-	while (i < stacks.a.size)
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	sign = 1;
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	result = 0;
+	while (*str >= '0' && *str <= '9')
 	{
-		ft_printf("%d\n", stacks.a.elem[i]);
-		i++;
+		result = result * 10 + *str - '0';
+		str++;
 	}
-	i = 0;
-	ft_printf("Stack b - size: %d\n", stacks.b.size);
-	while (i < stacks.b.size)
-	{
-		ft_printf("%d\n", stacks.b.elem[i]);
-		i++;
-	}
+	return (result * sign);
 }

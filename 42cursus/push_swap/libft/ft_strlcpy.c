@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 15:20:27 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/12 14:28:20 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:45:13 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/19 23:00:08 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	write(STDERR_FILENO, "Error\n", 6);
-	exit(0);
-}
-
-void	printf_stack(t_stack_ab stacks)
-{
-	int	i;
+	size_t	c;
+	size_t	i;
 
 	i = 0;
-	ft_printf("Stack a - size: %d\n", stacks.a.size);
-	while (i < stacks.a.size)
+	c = ft_strlen(src);
+	if (size != 0)
 	{
-		ft_printf("%d\n", stacks.a.elem[i]);
-		i++;
+		while (src[i] != '\0' && i < (size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	i = 0;
-	ft_printf("Stack b - size: %d\n", stacks.b.size);
-	while (i < stacks.b.size)
-	{
-		ft_printf("%d\n", stacks.b.elem[i]);
-		i++;
-	}
+	return (c);
 }

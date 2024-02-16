@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_op.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 15:21:55 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/11 12:26:34 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:46:08 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/19 18:27:00 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ra(t_stack_ab stacks)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	i;
+	void	*str;
 
-	i = 0;
-	while (i < stacks.a.size - 1)
-	{
-		swap(&stacks.a.elem[i], &stacks.a.elem[i + 1]);
-		i++;
-	}
-	ft_printf("ra\n");
-}
-
-void	rb(t_stack_ab stacks)
-{
-	int	i;
-
-	i = 0;
-	while (i < stacks.b.size - 1)
-	{
-		swap(&stacks.b.elem[i], &stacks.b.elem[i + 1]);
-		i++;
-	}
-	ft_printf("rb\n");
-}
-
-void	rr(t_stack_ab stacks)
-{
-	ra(stacks);
-	rb(stacks);
+	if (nmemb && size && nmemb > (4294967295U / size))
+		return (NULL);
+	str = malloc(size * nmemb);
+	if (!str)
+		return (NULL);
+	ft_bzero(str, size * nmemb);
+	return (str);
 }

@@ -6,11 +6,11 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:22:06 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/07 14:56:33 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/04 18:49:05 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	var_stamp(char ch, va_list varg)
 {

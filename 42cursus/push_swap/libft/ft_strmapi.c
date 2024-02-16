@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 15:20:27 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/12 14:28:20 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/01/18 14:47:04 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/01/18 14:47:06 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	write(STDERR_FILENO, "Error\n", 6);
-	exit(0);
-}
+	char	*str;
+	int		i;
 
-void	printf_stack(t_stack_ab stacks)
-{
-	int	i;
-
+	if (!s || !f)
+		return (NULL);
+	str = (char *) malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	ft_printf("Stack a - size: %d\n", stacks.a.size);
-	while (i < stacks.a.size)
+	while (s[i])
 	{
-		ft_printf("%d\n", stacks.a.elem[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	i = 0;
-	ft_printf("Stack b - size: %d\n", stacks.b.size);
-	while (i < stacks.b.size)
-	{
-		ft_printf("%d\n", stacks.b.elem[i]);
-		i++;
-	}
+	str[i] = '\0';
+	return (str);
 }
