@@ -5,7 +5,8 @@ RM = rm -f
 
 LIBFT = ./libft/libft.a
 
-SRCS = main.c
+SRCS = main.c utils/utils.c utils/mlx_utils.c utils/on_action.c \
+		utils/map_utils.c utils/map_validation.c utils/path_validation.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -45,5 +46,8 @@ clean:
 
 fclean:	clean
 	$(MAKE) fclean -C ./libft
-	$(MAKE) fclean -C ./mlx
 	$(RM) $(NAME)
+
+re: 
+	$(MAKE) fclean
+	$(MAKE) all
