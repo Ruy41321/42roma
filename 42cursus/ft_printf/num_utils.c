@@ -17,7 +17,7 @@ int	num_len(int n, int base)
 	int	c;
 
 	c = 0;
-	if (n < 0)
+	if (n <= 0)
 		c++;
 	while (n)
 	{
@@ -50,7 +50,7 @@ int	long_long_len(long long n, int base)
 	int	c;
 
 	c = 0;
-	if (n < 0)
+	if (n <= 0)
 		c++;
 	while (n)
 	{
@@ -75,12 +75,13 @@ int	ft_put_unsnbr(unsigned int nb)
 
 int	ft_puthex(unsigned int n, char flag)
 {
-	if (n == 0)
-		return (write(1, "0", 1));
+	int	c;
+
+	c = 0;
 	if (n >= 16)
 	{
-		ft_puthex(n / 16, flag);
-		ft_puthex(n % 16, flag);
+		c += ft_puthex(n / 16, flag);
+		c += ft_puthex(n % 16, flag);
 	}
 	else
 	{
@@ -90,6 +91,7 @@ int	ft_puthex(unsigned int n, char flag)
 		{
 			ft_putchar((n - 10 + flag - 23));
 		}
+		c++;
 	}
-	return (num_len(n, 16));
+	return (c);
 }

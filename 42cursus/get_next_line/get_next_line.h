@@ -17,6 +17,7 @@
 # include <stdlib.h>
 
 char	*get_next_line(int fd);
+int		ft_strlen(const char *str);
 char	*ft_add_char(char *s, char ch);
 
 #endif
