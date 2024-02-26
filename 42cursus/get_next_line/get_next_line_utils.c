@@ -6,11 +6,22 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 13:27:23 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/02 16:13:23 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:13:35 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	*ft_memset(void *str, int c, size_t n)
+{
+	unsigned char	*buffer;
+
+	buffer = NULL;
+	buffer = (unsigned char *) str;
+	while (n--)
+		buffer[n] = (unsigned char) c;
+	return ((void *) str);
+}
 
 int	ft_strlen(const char *str)
 {
@@ -38,14 +49,20 @@ size_t	ft_strcpy(char *dest, const char *src)
 	return (c);
 }
 
-char	*ft_add_char(char *s, char ch)
+char	*ft_strdup(char *src)
 {
-	char	*ret;
+	char	*dest;
+	int		i;
 
-	ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 2));
-	ft_strcpy(ret, s);
-	ret[ft_strlen(s)] = ch;
-	ret[ft_strlen(s) + 1] = '\0';
-	free(s);
-	return (ret);
+	dest = (char *)malloc(ft_strlen(src) + 1);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = src[i];
+	return (dest);
 }
