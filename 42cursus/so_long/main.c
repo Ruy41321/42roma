@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:58:00 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/22 14:07:41 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/28 16:32:39 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int	main(int argc, char **argv)
 {
 	t_pointers	ptr;
-	
+
+	ptr.map.matrix = NULL;
+	ptr.map.tex.collect = NULL;
 	if (argc != 2)
 		error_handling(&ptr, "Invalid Number of Arguments");
 	set_matrix(&ptr, argv[1]);

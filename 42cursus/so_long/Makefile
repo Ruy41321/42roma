@@ -6,7 +6,8 @@ RM = rm -f
 LIBFT = ./libft/libft.a
 
 SRCS = main.c utils/utils.c utils/mlx_utils.c utils/on_action.c \
-		utils/map_utils.c utils/map_validation.c utils/path_validation.c
+		utils/map_utils.c utils/map_validation.c utils/path_validation.c \
+		utils/moving.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -38,6 +39,9 @@ $(NAME): $(OBJS) $(LIBFT)
  
 $(MLX_LIB):
 	@make -C $(MLX_DIR)
+
+norm:
+	norminette $(SRCS) libft includes
 
 clean:
 	$(MAKE) clean -C ./libft
