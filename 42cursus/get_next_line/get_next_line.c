@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:08:35 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/26 15:53:35 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/28 14:40:40 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	is_empty(char *next_line)
 	free(next_line);
 	return (1);
 }
-
+/*
 #include <fcntl.h>
 
 int main()
@@ -136,4 +136,4 @@ int main()
 	printf("%s", get_next_line(fd));
 	printf("%s", get_next_line(fd));
 	printf("%s", get_next_line(fd));
-}
+}*/

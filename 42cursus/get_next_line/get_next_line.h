@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:09:10 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/26 15:54:42 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/28 14:40:00 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 char	*get_next_line(int fd);
 void	*ft_memset(void *str, int c, size_t n);
