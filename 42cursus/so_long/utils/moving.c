@@ -6,14 +6,13 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:04:04 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/28 16:40:33 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/29 15:30:41 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
 int		move_player(t_map *map, int new_x, int new_y);
-void	check_win(t_pointers *ptr);
 
 int	move(t_pointers *ptr, int direction)
 {
@@ -33,7 +32,7 @@ int	move(t_pointers *ptr, int direction)
 	if (ptr->map.matrix[new_y][new_x] == '1')
 		return (0);
 	system("clear");
-	printf("Moves count: %d\n", ptr->map.moves_count++);
+	ft_printf("Moves count: %d\n", ptr->map.moves_count++);
 	if (move_player(&ptr->map, new_x, new_y))
 		return (1);
 	load_map(ptr);

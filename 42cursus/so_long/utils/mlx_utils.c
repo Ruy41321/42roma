@@ -6,11 +6,13 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:57:19 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/28 16:06:45 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/29 15:31:52 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	init_textures(t_pointers *ptr);
 
 void	set_hook_and_loop(t_pointers *ptr)
 {

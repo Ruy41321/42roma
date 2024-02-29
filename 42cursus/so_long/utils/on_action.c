@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:55:54 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/28 16:48:48 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/29 15:20:47 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int	on_destroy(t_pointers *ptr)
 {
 	if (ptr->map.matrix)
-	{
-		free_matrix(ptr->map.matrix);
-		free(ptr->map.matrix);
-	}
+		free_matrix((void **)ptr->map.matrix, ptr->map.line_num);
 	if (ptr->win)
 		mlx_destroy_window(ptr->mlx, ptr->win);
 	if (ptr->mlx)

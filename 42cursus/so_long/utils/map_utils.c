@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:37:15 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/28 16:36:47 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/02/29 15:28:08 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,11 @@ int	get_line_num(char *path)
 	return (line_count);
 }
 
-void	set_matrix(t_pointers *ptr, char *map_path)
+void	set_map(t_pointers *ptr, char *map_path)
 {
 	int	i;
 	int	fd;
 
-	if (ft_strncmp(ft_get_extention(map_path), "ber", 3))
-		error_handling(ptr, "Wrong extention");
 	ptr->map.line_num = get_line_num(map_path);
 	if (ptr->map.line_num == -1)
 		error_handling(ptr, "Errore nell'apertura del file");
@@ -63,15 +61,16 @@ void	set_matrix(t_pointers *ptr, char *map_path)
 	ptr->map.matrix = malloc(sizeof(char *) * (ptr->map.line_num + 1));
 	ptr->map.matrix[0] = get_next_line(fd);
 	ptr->map.line_size = ft_strlen(ptr->map.matrix[0]);
-	i = 1;
-	while (i < ptr->map.line_num)
+	i = 0;
+	while (++i < ptr->map.line_num)
 	{
 		ptr->map.matrix[i] = get_next_line(fd);
 		if (ft_strlen((ptr->map.matrix[i])) != ptr->map.line_size)
 			error_handling(ptr, "The map must be rectangular");
-		i++;
 	}
 	ptr->map.matrix[i] = NULL;
+	ptr->map.tex.size = 64;
+	ptr->map.moves_count = 0;
 	close(fd);
 }
 
@@ -113,6 +112,4 @@ void	check_map_validation(t_pointers *ptr)
 		}
 	}
 	check_path(ptr, player, my_exit, collectable);
-	ptr->map.tex.size = 64;
-	ptr->map.moves_count = 0;
 }
