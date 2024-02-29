@@ -1,5 +1,14 @@
 {
     "files.associations": {
-        "stdio.h": "c"
-    }
+		"stdio.h": "c",
+		"fcntl.h": "c",
+		"get_next_line.h": "c",
+		"so_long.h": "c",
+		"array": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"utility": "c",
+		"libft.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
