@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:29:54 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/02 11:30:09 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:42:48 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,15 @@ void	recursive_putptr(unsigned long long num)
 
 int	ft_putptr(unsigned long long num)
 {
-	write(1, "0x", 2);
 	if (num == 0)
-		return (write(1, "0", 1) + 2);
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
 	else
+	{
+		write(1, "0x", 2);
 		recursive_putptr(num);
+	}
 	return (ptr_len(num));
 }
