@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 13:27:23 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/26 15:53:27 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:15:40 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,14 @@ char	*ft_strdup(char *src)
 	}
 	dest[i] = src[i];
 	return (dest);
+}
+
+char	get_last(char *str)
+{
+	int	len;
+
+	len = ft_strlen(str);
+	if (len)
+		len--;
+	return (str[len]);
 }
