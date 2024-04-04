@@ -1,48 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 14:45:13 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/20 13:19:50 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/02/11 10:50:36 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/02/11 10:50:53 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+long	ft_atol(const char *str)
 {
-	size_t	c;
-	size_t	i;
+	int		sign;
+	long	result;
 
-	i = 0;
-	c = ft_strlen(src);
-	if (size != 0)
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	sign = 1;
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	result = 0;
+	while (*str >= '0' && *str <= '9')
 	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		result = result * 10 + *str - '0';
+		str++;
 	}
-	return (c);
-}
-
-size_t	ft_strcpy(char *dest, const char *src)
-{
-	size_t	c;
-	size_t	i;
-
-	i = 0;
-	c = ft_strlen(src);
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (c);
+	return (result * sign);
 }

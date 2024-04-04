@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prntf_utils.c                                      :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 11:24:49 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/11 10:48:04 by lpennisi         ###   ########.fr       */
+/*   Created: 2024/02/02 13:27:23 by lpennisi          #+#    #+#             */
+/*   Updated: 2024/04/03 20:52:09 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar(char c)
+char	get_last(char *str)
 {
-	write(1, &c, 1);
-	return (1);
-}
+	int	len;
 
-int	ft_putstr(char *s)
-{
-	if (!s)
-		return (0);
-	write(1, s, ft_strlen(s));
-	return (ft_strlen(s));
+	len = ft_strlen(str);
+	if (len)
+		len--;
+	return (str[len]);
 }

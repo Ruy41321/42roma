@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:47:15 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/04 18:48:45 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:44:19 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <fcntl.h>
+# include <stdio.h>
 # undef INT_MIN
 # undef INT_MAX
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
@@ -38,6 +44,7 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strcpy(char *dest, const char *src);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
@@ -77,5 +84,9 @@ int		ft_putptr(unsigned long long num);
 int		ft_putnbr(int n);
 int		ft_put_unsnbr(unsigned int n);
 int		ft_puthex(unsigned int n, char flag);
+long	ft_atol(const char *str);
+char	*get_next_line(int fd);
+char	get_last(char *str);
+char	*ft_get_extention(char *pathfile);
 
 #endif
