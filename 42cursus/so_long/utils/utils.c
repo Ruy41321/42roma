@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 19:03:39 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/29 15:27:42 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:44:41 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	error_handling(t_pointers *ptr, char *msg)
 	on_destroy(ptr);
 }
 
-void	free_matrix(void	**matrix, int size)
+void	free_matrix(void **matrix, int size)
 {
 	int	i;
 
 	i = 0;
-	while (i < size && matrix[i] != NULL)
+	while (i < size)
 		free(matrix[i++]);
 	free(matrix);
 }

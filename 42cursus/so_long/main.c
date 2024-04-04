@@ -6,19 +6,20 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:58:00 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/04/04 13:37:35 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:28:30 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
+
+void	init_pointer(t_pointers *ptr);
 
 int	main(int argc, char **argv)
 {
 	t_pointers	ptr;
 	char		*ext;
 
-	ptr.map.matrix = NULL;
-	ptr.map.tex.collect = NULL;
+	init_pointer(&ptr);
 	if (argc != 2)
 		error_handling(&ptr, "Invalid Number of Arguments");
 	ext = ft_get_extention(argv[1]);
@@ -31,4 +32,12 @@ int	main(int argc, char **argv)
 	load_map(&ptr);
 	set_hook_and_loop(&ptr);
 	return (0);
+}
+
+void	init_pointer(t_pointers *ptr)
+{
+	ptr->mlx = NULL;
+	ptr->win = NULL;
+	ptr->map.matrix = NULL;
+	ptr->map.tex.collect = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:37:15 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/04/04 13:29:06 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:45:18 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ void	set_map(t_pointers *ptr, char *map_path)
 	{
 		ptr->map.matrix[i] = get_next_line(fd);
 		if (ft_strlen((ptr->map.matrix[i])) != ptr->map.line_size)
+		{
+			ptr->map.line_num = i + 1;
 			error_handling(ptr, "The map must be rectangular");
+		}
 	}
 	ptr->map.matrix[i] = NULL;
 	ptr->map.tex.size = 64;
