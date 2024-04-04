@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:47:15 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/22 13:00:14 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:44:19 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # include <stdio.h>
 # undef INT_MIN
 # undef INT_MAX
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
@@ -82,6 +86,7 @@ int		ft_put_unsnbr(unsigned int n);
 int		ft_puthex(unsigned int n, char flag);
 long	ft_atol(const char *str);
 char	*get_next_line(int fd);
+char	get_last(char *str);
 char	*ft_get_extention(char *pathfile);
 
 #endif

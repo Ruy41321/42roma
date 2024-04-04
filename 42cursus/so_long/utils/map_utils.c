@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:37:15 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/29 15:28:08 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:29:06 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_line_num(char *path)
 	if (fd == -1)
 		return (-1);
 	line = get_next_line(fd);
-	while (*line)
+	while (line)
 	{
 		line_count++;
 		free(line);

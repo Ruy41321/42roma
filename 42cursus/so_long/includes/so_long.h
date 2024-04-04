@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:49:58 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/29 15:32:30 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:50:08 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ typedef struct s_pointers
 	t_map		map;
 }	t_pointers;
 
-# define WALL_PATH "./assets/myAssets/64/wall.xpm"
-# define FLOOR_PATH "./assets/myAssets/64/floor.xpm"
-# define EXIT_PATH "./assets/myAssets/64/exit.xpm"
-# define PLAYER_PATH "./assets/myAssets/64/player.xpm"
-# define PLAYER_ON_EXIT_PATH "./assets/myAssets/64/exit_pl.xpm"
-# define COLLECTABLE_PATH "./assets/myAssets/64/collect.xpm"
+# define WALL_PATH "./textures/myAssets/64/wall.xpm"
+# define FLOOR_PATH "./textures/myAssets/64/floor.xpm"
+# define EXIT_PATH "./textures/myAssets/64/exit.xpm"
+# define PLAYER_PATH "./textures/myAssets/64/player.xpm"
+# define PLAYER_ON_EXIT_PATH "./textures/myAssets/64/exit_pl.xpm"
+# define COLLECTABLE_PATH "./textures/myAssets/64/collect.xpm"
 
 # define TRUE 1
 # define FALSE 0
