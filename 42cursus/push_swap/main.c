@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:00:42 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/04/03 19:50:50 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 19:22:59 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	main(int argc, char **argv)
 		else
 			sort_bitxbit(&stacks);
 	}
-	free(argv);
+	free(stacks.a.elem);
+	free(stacks.b.elem);
 	return (0);
 }
 
