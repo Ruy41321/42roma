@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:58:00 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/04/04 15:28:30 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:23:59 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	main(int argc, char **argv)
 		error_handling(&ptr, "Invalid Number of Arguments");
 	ext = ft_get_extention(argv[1]);
 	if (ft_strncmp(ext, "ber", 3))
+	{
+		free(ext);
 		error_handling(&ptr, "Wrong extention");
+	}
 	free(ext);
 	set_map(&ptr, argv[1]);
 	check_map_validation(&ptr);
@@ -40,4 +43,18 @@ void	init_pointer(t_pointers *ptr)
 	ptr->win = NULL;
 	ptr->map.matrix = NULL;
 	ptr->map.tex.collect = NULL;
+}
+
+void	load_map(t_pointers *ptr)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < ptr->map.line_num)
+	{
+		x = -1;
+		while (++x < ptr->map.line_size)
+			load_img(ptr, x, y);
+	}
 }

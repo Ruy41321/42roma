@@ -6,25 +6,11 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:37:15 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/04/04 15:45:18 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:26:06 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-void	load_map(t_pointers *ptr)
-{
-	int	x;
-	int	y;
-
-	y = -1;
-	while (++y < ptr->map.line_num)
-	{
-		x = -1;
-		while (++x < ptr->map.line_size)
-			load_img(ptr, x, y);
-	}
-}
 
 int	get_line_num(char *path)
 {
@@ -47,13 +33,20 @@ int	get_line_num(char *path)
 	return (line_count);
 }
 
+void	update_map(t_pointers *ptr, int i)
+{
+	ptr->map.matrix[i] = NULL;
+	ptr->map.tex.size = 64;
+	ptr->map.moves_count = 0;
+}
+
 void	set_map(t_pointers *ptr, char *map_path)
 {
 	int	i;
 	int	fd;
 
 	ptr->map.line_num = get_line_num(map_path);
-	if (ptr->map.line_num == -1)
+	if (ptr->map.line_num <= 0)
 		error_handling(ptr, "Errore nell'apertura del file");
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
@@ -71,9 +64,7 @@ void	set_map(t_pointers *ptr, char *map_path)
 			error_handling(ptr, "The map must be rectangular");
 		}
 	}
-	ptr->map.matrix[i] = NULL;
-	ptr->map.tex.size = 64;
-	ptr->map.moves_count = 0;
+	update_map(ptr, i)
 	close(fd);
 }
 
