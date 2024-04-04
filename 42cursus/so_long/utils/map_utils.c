@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:37:15 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/04/04 16:26:06 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:29:22 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	set_map(t_pointers *ptr, char *map_path)
 			error_handling(ptr, "The map must be rectangular");
 		}
 	}
-	update_map(ptr, i)
+	update_map(ptr, i);
 	close(fd);
 }
 
