@@ -6,7 +6,7 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:59:59 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/02/12 14:31:04 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:26:44 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ int		is_sorted(t_stack a);
 void	tree_nums_sort(t_stack_ab stacks);
 void	short_stack_sort(t_stack_ab *stacks);
 void	sort_bitxbit(t_stack_ab *stacks);
+char	**get_split(int *argc, char **argv);
+void	free_split(int size, char ***split);
 
 #endif

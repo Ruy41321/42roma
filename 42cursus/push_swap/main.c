@@ -6,14 +6,14 @@
 /*   By: lpennisi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:00:42 by lpennisi          #+#    #+#             */
-/*   Updated: 2024/04/04 20:49:41 by lpennisi         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:28:57 by lpennisi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	*param_parse(int *argc, char **argv);
-int	*argv_to_intarr(int argc, char **argv);
+int	*argv_to_intarr(int argc, char ***argv);
 int	are_digits(int argc, char **argv);
 int	has_duplicates(int *elems, int size);
 
@@ -41,13 +41,19 @@ int	main(int argc, char **argv)
 
 int	*param_parse(int *argc, char **argv)
 {
-	int	*elems;
+	int		*elems;
+	char	**split;
 
 	if (*argc == 1)
 		exit (0);
-	if (!are_digits(*argc, argv))
+	split = get_split(argc, argv);
+	if (!are_digits(*argc, split))
+	{
+		free_split(*argc, &split);
 		error_exit();
-	elems = argv_to_intarr(*argc, argv);
+	}
+	elems = argv_to_intarr(*argc, &split);
+	free_split(*argc, &split);
 	if (has_duplicates(elems, *argc - 1))
 	{
 		free(elems);
@@ -81,7 +87,7 @@ int	are_digits(int argc, char **argv)
 	return (1);
 }
 
-int	*argv_to_intarr(int argc, char **argv)
+int	*argv_to_intarr(int argc, char ***argv)
 {
 	int		*elems;
 	long	temp;
@@ -91,9 +97,10 @@ int	*argv_to_intarr(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		temp = ft_atol(argv[i]);
+		temp = ft_atol((*argv)[i]);
 		if (temp > INT_MAX || temp < INT_MIN)
 		{
+			free_split(argc, argv);
 			free(elems);
 			error_exit();
 		}
